@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import React from 'react';
 
 const BookingModal = ({ treatement, selectedDate}) => {
-    const { name } = treatement;
+    const { name,slots } = treatement;
     const date = format(selectedDate,'PP')
     return (
         <>
@@ -13,6 +13,14 @@ const BookingModal = ({ treatement, selectedDate}) => {
                     <h3 className="text-lg font-bold">{name}</h3>
                     <form className="grid grid-cols-1 gap-3 mt-10">
                         <input type="text" value={date} disabled className="input w-full max-w-xs" />
+                        <select name="" id="" className="select select-bor w-full">
+                           
+                           {
+                            
+                             slots.map(slot => <option value={slot}>{slot}</option>)
+                            }
+
+                        </select>
                         <input type="text" placeholder="Type here" className="input w-full max-w-xs" />
                         <input type="text" placeholder="Type here" className="input w-full max-w-xs" />
                         <input type="text" placeholder="Type here" className="input w-full max-w-xs" />
